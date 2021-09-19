@@ -1,0 +1,62 @@
+type Query {
+  user(userId: ID!): User
+  getCurrentWeek(date: String, userId: ID!): [Action!]!
+  getPreviousWeek(date: String, userId: ID!): [Action!]!
+  getAppliances(userId: ID!): [Appliance!]!
+  getDailyTip: String!
+}
+
+type Mutations {
+  createAction(input: {
+    name: String
+    category: ActionClasses
+    impact: Number
+    date: Date
+    userId: ID
+  }: Action!
+  createAppliance(input: {
+    name: String
+    category: ApplianceClasses
+    power: Number
+  }: Action!
+)
+}
+
+type User {
+  actions: [Action!]!
+  appliances: [Appliance]!
+  monthlyStats: MontlyStats!
+}
+
+type Action {
+  name: String
+  category: ActionClasses
+  impact: Number
+  date: Date
+  userId: ID
+}
+
+enum ActionClasses {
+  CARBON
+  ELECTRICITY
+  WATER
+}
+
+type Appliance {
+  name: String
+  category: ApplianceClasses
+  power: Number
+}
+
+enum ApplianceClasses {
+  LIGHTING
+  SMART
+  HOUSEHOLD
+  MISCELLANEOUS
+}
+
+type MontlyStats {
+  carbonReduced: Number
+  electricitySaved: Number
+  waterSaved: Number
+}
