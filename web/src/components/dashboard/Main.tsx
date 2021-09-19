@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Grid } from '@chakra-ui/react';
+import { User } from 'firebase/auth';
 import Logo from '../icons/Logo';
 import {
   DARK_GRAY,
@@ -25,6 +26,7 @@ import AppliancesCard from './AppliancesCard';
 import Electricity from '../icons/Electricity';
 import CarbonDioxide from '../icons/CarbonDioxide';
 import Water from '../icons/Water';
+import { auth } from '../../constants/firebase';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -77,6 +79,7 @@ const PageContainer = styled.div`
 `;
 
 const Main: React.FC = () => {
+  const user = auth.currentUser as User;
   return (
     <MainContainer>
       <LeftSideSection>
@@ -89,7 +92,10 @@ const Main: React.FC = () => {
         </SideNav>
       </LeftSideSection>
       <PageContainer>
-        <Navbar />
+        <Navbar
+          name={user.displayName as string}
+          photoURL={user.photoURL || `https://avatars.dicebear.com/api/bottts/${user.uid}.svg`}
+        />
         <Grid
           templateColumns="repeat(auto-fit, minmax(300px, 1fr))"
           autoRows="1fr"

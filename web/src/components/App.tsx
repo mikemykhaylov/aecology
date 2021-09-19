@@ -1,9 +1,10 @@
 import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components/macro';
 import { Normalize } from 'styled-normalize';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import fontFaces from '../fonts/fontSetup';
 import Dashboard from '../containers/Dashboard';
+import Login from '../containers/Login';
+import fontFaces from '../fonts/fontSetup';
 
 const GlobalStyle = createGlobalStyle`
 ${fontFaces}
@@ -23,6 +24,9 @@ const App: React.FC = () => {
       <Normalize />
       <GlobalStyle />
       <Switch>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
         <Route path="/" exact>
           <Dashboard />
         </Route>

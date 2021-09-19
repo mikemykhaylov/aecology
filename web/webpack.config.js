@@ -49,7 +49,7 @@ module.exports = (env, options) => {
           ],
         },
         {
-          test: /\.(png|jpg|gif|svg|ico|woff2?)$/,
+          test: /\.(png|jpg|gif|svg|ico|webp|woff2?)$/,
           type: 'asset/resource',
         },
       ],
