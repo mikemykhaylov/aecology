@@ -1,10 +1,13 @@
-import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import React, { lazy, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components/macro';
 import { Normalize } from 'styled-normalize';
 import Dashboard from '../containers/Dashboard';
-import Login from '../containers/Login';
 import fontFaces from '../fonts/fontSetup';
+import Loading from './general/Loading';
+
+const Login = lazy(() => import('../containers/Login'));
 
 const GlobalStyle = createGlobalStyle`
 ${fontFaces}
@@ -20,12 +23,14 @@ ${fontFaces}
 
 const App: React.FC = () => {
   return (
-    <>
+    <ChakraProvider>
       <Normalize />
       <GlobalStyle />
       <Switch>
         <Route path="/login" exact>
-          <Login />
+          <Suspense fallback={<Loading width="100vw" height="100vh" />}>
+            <Login />
+          </Suspense>
         </Route>
         <Route path="/" exact>
           <Dashboard />
@@ -34,7 +39,7 @@ const App: React.FC = () => {
           <Redirect to="?" />
         </Route>
       </Switch>
-    </>
+    </ChakraProvider>
   );
 };
 export default App;

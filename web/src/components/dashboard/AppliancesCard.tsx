@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
-import { Grid } from '@chakra-ui/react';
+import { Badge, Grid } from '@chakra-ui/react';
 import {
-  DARKER_PRIMARY,
   GRAY,
   LIGHTER_PRIMARY,
   LIGHTER_SECONDARY,
@@ -53,7 +52,7 @@ const Category = styled.div`
 
 const AddCategoryButton = styled.button`
   width: 20%;
-  background-color: ${DARKER_PRIMARY};
+  background-color: ${GRAY};
   color: ${LIGHT_GRAY};
   border: none;
   border-radius: 8px;
@@ -70,6 +69,7 @@ const AppliancesCard = ({ heading }: { heading: string }) => {
       <CardHeading>
         <Appliances fill={TERTIARY} size={40} />
         <Heading3>{heading}</Heading3>
+        <Badge colorScheme="green">In Dev</Badge>
       </CardHeading>
       <AppliancesContainer>
         <Grid templateColumns="repeat(2, 1fr)" gap="16px">

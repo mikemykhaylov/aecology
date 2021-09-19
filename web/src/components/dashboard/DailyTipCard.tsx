@@ -1,3 +1,4 @@
+import { Badge } from '@chakra-ui/react';
 import React from 'react';
 import styled from 'styled-components/macro';
 import { PRIMARY } from '../../constants/websiteColors';
@@ -15,6 +16,7 @@ const DailyTip = () => {
       <CardHeading>
         <Tip size={40} fill={PRIMARY} />
         <Heading3>Daily eco-tip</Heading3>
+        <Badge colorScheme="green">In Dev</Badge>
       </CardHeading>
       <Heading3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Heading3>
     </DailyTipCardContainer>
