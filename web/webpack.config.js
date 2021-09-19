@@ -79,13 +79,13 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebPackPlugin({
-        title: 'React Template',
+        title: 'Aecology — a new way to think about sustainability',
         hash: true,
         filename: './index.html', // target html
         template: path.resolve(__dirname, './public/index.html'), // source html
       }),
       new MiniCssExtractPlugin(),
-      new FaviconsWebpackPlugin('./public/favicon.svg'),
+      new FaviconsWebpackPlugin('./public/favicon.png'),
       new CleanWebpackPlugin(),
       new CompressionPlugin(),
       isDevelopment && new ReactRefreshWebpackPlugin(),
