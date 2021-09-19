@@ -12,8 +12,8 @@ for (let i = 0; i < 3; i += 1) {
   for (let j = 0; j < 7; j += 1) {
     array.push({
       name: week[(j + 1) % 7].slice(0, 3),
-      prev: Math.round(Math.random() * 10),
-      curr: Math.round(Math.random() * 10),
+      prev: Math.round(Math.random() * 200),
+      curr: Math.round(Math.random() * 200),
     });
   }
   dummyData.push(array);

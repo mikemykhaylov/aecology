@@ -104,6 +104,7 @@ const Main: React.FC = () => {
         >
           <DailyTip />
           <ConsumptionCard
+            category="co2"
             data={dummyData[0]}
             heading="CO2 Emissions"
             prevWeekColor={LIGHTER_TERTIARY}
@@ -111,6 +112,7 @@ const Main: React.FC = () => {
             icon={<CarbonDioxide size={40} fill={TERTIARY} />}
           />
           <ConsumptionCard
+            category="electricity"
             data={dummyData[1]}
             heading="Electricity"
             prevWeekColor={LIGHTER_SECONDARY}
@@ -118,6 +120,7 @@ const Main: React.FC = () => {
             icon={<Electricity size={40} fill={SECONDARY} />}
           />
           <ConsumptionCard
+            category="water"
             data={dummyData[2]}
             heading="Water"
             prevWeekColor={LIGHTER_PRIMARY}
